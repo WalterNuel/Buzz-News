@@ -1,0 +1,152 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;600&family=Playfair:wght@300;400&family=Roboto:ital,wght@0,100;0,300;0,400;0,700;0,900;1,500&family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="{% static 'styles/index.css' %}">
+  <title>Glance</title>
+</head>
+<body>
+  <!-- <div class="page-whole"> -->
+    <div class="nav">
+      <ul class="left">
+        <li class="logo"><span class="g">Buzz</span></li>
+        <li class="search-part">
+          <form action="" method="GET">
+            <button type="submit" class="material-symbols-outlined">
+              search
+            </button>
+            <input type="text" class="search" name="search" value="{{query}}" placeholder="Search" id="">
+          </form>
+        </li>
+      </ul>
+      <ul class="right">
+        <li>
+          <div class="person">
+          </div>
+        </li>
+      </ul>
+    </div>
+  <!-- </div> -->
+  <div class="main-content">
+    <div class="main">
+      <div class="feed">
+        <div class="feed-content">
+          <div class="interests" id="interests">
+            <ul class="ops-filters">
+              <li><button class="filter active">Headlines</button></li>
+              <li><button class="filter">Technology</button></li>
+              <li><button class="filter">Entertainment</button></li>
+              <li><button class="filter">History</button></li>
+              <li><button class="filter">Medicine</button></li>
+            </ul>
+          </div>
+          <div class="stories">
+            {% for title, desc, img, author in lvl %}
+            <div class="cards">
+              <div class="card-top">
+                <p>{{author}}</p>
+              </div>
+              <div class="card-mid">
+                <div class="story-content">
+                  <div class="title">
+                    <h2>{{title}}</h2>
+                  </div>
+                  <div class="para">
+                    {{desc}}
+                  </div>
+                </div>
+                <div class="story-img">
+                  <div class="img">
+                    <img src="{{img}}" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sub-main" id="s_main">
+      <div class="saves-topics" id="s_topics">
+        <div class="saved">
+          <p class="head-top">Saved Articles</p>
+          <div class="article">
+            <div class="card-top">
+              <p class="card-top-pop">Author • BBC</p>
+            </div>
+            <div class="card-mid">
+              <div class="story-content">
+                <div class="title">
+                  <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos provident</h2>
+                </div>
+              </div>
+              <!-- <div class="story-img">
+                <div class="img"></div>
+              </div> -->
+            </div>
+          </div>
+          <div class="article">
+            <div class="card-top">
+              <p class="card-top-pop">Author • BBC</p>
+            </div>
+            <div class="card-mid">
+              <div class="story-content">
+                <div class="title">
+                  <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos provident</h2>
+                </div>
+              </div>
+              <!-- <div class="story-img">
+                <div class="img"></div>
+              </div> -->
+            </div>
+          </div>
+          <div class="article">
+            <div class="card-top">
+              <p class="card-top-pop">Author • BBC</p>
+            </div>
+            <div class="card-mid">
+              <div class="story-content">
+                <div class="title">
+                  <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos provident</h2>
+                </div>
+              </div>
+              <!-- <div class="story-img">
+                <div class="img"></div>
+              </div> -->
+            </div>
+          </div>
+
+          <a class="saved-lists" href="#">See full list</a>
+        </div>
+        <div class="topics">
+          <div class="topics-list-holder">
+            <p class="head-top">More Topics</p>
+            <div class="topics-list">
+              {% for i in topics %}
+                <div class="li-topics">
+                  <a href="#">
+                    <button class="topic-btns">
+                      {{i.name}}
+                    </button>
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{% static 'js/sticky.js' %}"></script>
+</body>
+</html>
